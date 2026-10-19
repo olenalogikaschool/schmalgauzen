@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.logo{
+    width: 198px;
+    margin: 0 20px;
+}
+
+.streaming img, .social img{
+    width: 24px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+nav a{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 2px solid white;
+    padding-bottom: 8px;
+    transition: 0.2s all;
+}
+
+
+nav a:hover{
+    border-bottom: 2px solid black;
+}
+
+nav{
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social{
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.streaming{
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.back,
+.back-2 {
+    position: absolute;
+    inset: 0;                   /* top:0; right:0; bottom:0; left:0 */
+    width: 100%;
+    z-index: 0;
+}
+
+.hero-page {
+    position: relative;
+    width: 100%;
+    /* Висота hero-блоку — на весь екран, але не менше 500px */
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
+    display: flex;              /* ← центруємо через flex */
+    justify-content: center;
+    align-items: center;
+}
+
+.back-2 {
+    z-index: 2;                 /* друга картинка поверх першої */
+}
+
+.title {
+    position: relative;         /* щоб бути над absolute-картинками */
+    z-index: 1;
+    bottom: 220px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+
+    /* 🔑 Адаптивний розмір шрифту: мінімум 2rem, масштабується від ширини екрану, максимум 9rem */
+    font-size: clamp(2rem, 12vw, 11rem);
+
+    line-height: 1;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0 20px;            /* відступи по боках на мобільних */
+    text-shadow: 0 2px 12px rgba(0,0,0,.35); /* читабельність на світлих фото */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    animation: fadeInUp; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2.5s; /* don't forget to set a duration! */
+}
+
+
+.title:hover {
+    color: rgba(255, 255, 255, 0);  
+}
+
+
+.hero-page:has(.back-2:hover) .title {
+    opacity: 0;
+}
+
+
+@media (max-width: 896px) {
+    header{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+}
+
+nav{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.streaming, .social{
+   display: none;
+}
+}
